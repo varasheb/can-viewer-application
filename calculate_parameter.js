@@ -158,6 +158,24 @@
 
     }
 
+
+    //pid-[30]
+
+    calculate_warm_ups_since_code_cleared(hexData){
+
+        let hex1 = hexData.slice(0,2)
+
+        let val1 = parseInt(hex1,16)
+
+        let result = val1
+
+
+        return `${result} Counts`
+
+
+
+    }
+
         //pid-[31]
 
 
@@ -260,9 +278,9 @@
 
 }
 
-let calculate = new CalculateParameters()
+// let calculate = new CalculateParameters()
 
-let hexData = "1234";
+// let hexData = "1234";
 
 // let distance = calculate.calculate_distance_travelled_with_malfuction_indicator_lamp(hexData);
 
@@ -288,7 +306,8 @@ let hexData = "1234";
 
 // let distance = calculate.calculate_oxygen_sensor_ratio_current(hexData)
 
-let distance = calculate.calculate_catalyst_temperature(hexData)
+// let distance = calculate.calculate_catalyst_temperature(hexData)
+// let distance = calculate.calculate_warm_ups_since_code_cleared(hexData)
 
 
 
@@ -297,4 +316,5 @@ let distance = calculate.calculate_catalyst_temperature(hexData)
 
 
 
-console.log(distance);
+
+// console.log(distance);
