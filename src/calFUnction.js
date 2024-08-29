@@ -1,142 +1,220 @@
 export class DataHexDecoder {
+
+  monitor_status_since_DTCs_cleared(hexdata){
+    let hexA = hexdata.slice(0, 8);
+    let A = parseInt(hexA, 16);
+    let result = 1 * A;
+    let encodedResult = `${result} ENCODEDD`;
+    console.log('monitor_status_since_DTCs_cleared', encodedResult);
+    return encodedResult;
+  }
+
+  freez_dtc(hexdata){
+    let hexA = hexdata.slice(0, 4);
+    let A = parseInt(hexA, 16);
+    let result = 1 * A;
+    let encodedResult = `${result} ENCODEDD`;
+    console.log('freez_dtc', encodedResult);
+    return encodedResult;
+  }
+
+  fuel_system_status(hexdata){
+    let hexA = hexdata.slice(0, 4);
+    let A = parseInt(hexA, 16);
+    let result = 1 * A;
+    let encodedResult = `${result} ENCODEDD`;
+    console.log('fuel system status', encodedResult);
+    return encodedResult;
+  }
+
+  comanded_secondary_air_status(hexdata){
+    let hexA = hexdata.slice(0, 2);
+    let A = parseInt(hexA, 16);
+    let result = 1 * A;
+    let encodedResult = `${result} ENCODEDD`;
+    console.log('comanded_secondary_air_status', encodedResult);
+    return encodedResult;
+  }
+
+  obd_standard_to_vechile_cinfirm(hexdata){
+    let hexA = hexdata.slice(0, 2);
+    let A = parseInt(hexA, 16);
+    let result = 1 * A;
+    let encodedResult = `${result} ENCODEDD`;
+    console.log('obd_standard_to_vechile_cinfirm', encodedResult);
+    return encodedResult;
+  }
+
   calculateEngineSpeed(hexData) {
     let hexA = hexData.slice(0, 2);
     let hexB = hexData.slice(2, 4);
-
     let A = parseInt(hexA, 16);
     let B = parseInt(hexB, 16);
-
     let result = (256 * A + B) / 4;
-
-    return result;
+    let finalResult = `${result} RPM`;
+    console.log('Engine Speed:', finalResult);
+    return finalResult;
   }
 
   calcuteEngineLoad(hexdata) {
     let hexA = hexdata.slice(0, 2);
     let A = parseInt(hexA, 16);
-
     let result = A / 2.55;
-
-    console.log('Engine Load in percentage:', result + ' %');
-    return result;
+    let finalResult = `${result} %`;
+    console.log('Engine Load in percentage:', finalResult);
+    return finalResult;
   }
 
   engineColentTemprature(hexData) {
     let hexA = hexData.slice(0, 2);
-
     let A = parseInt(hexA, 16);
     let result = A - 40;
-
-    console.log('Engine coolant temperature: ' + result + '°C');
-    return result;
+    let finalResult = `${result} °C`;
+    console.log('Engine coolant temperature:', finalResult);
+    return finalResult;
   }
 
   calculate_fuel_Trim(hexData) {
     let hexA = hexData.slice(0, 2);
     let A = parseInt(hexA, 16);
-
     let result = A / 1.28 - 100;
-
-    console.log('fuel_Trim: ' + result + ' %');
-    return result;
+    let finalResult = `${result} %`;
+    console.log('Fuel Trim:', finalResult);
+    return finalResult;
   }
 
   calculate_fuel_Pressure(hexData) {
     let hexA = hexData.slice(0, 2);
     let A = parseInt(hexA, 16);
-
     let result = 3 * A;
-
-    console.log('fuel_Pressure : ' + result + ' kpa');
-    return result;
+    let finalResult = `${result} kPa`;
+    console.log('Fuel Pressure:', finalResult);
+    return finalResult;
   }
 
   intake_manifold_absolute_pressure(hexData) {
     let hexA = hexData.slice(0, 2);
     let A = parseInt(hexA, 16);
-
     let result = 1 * A;
-
-    console.log('intake_manifold_absolute_pressure : ' + result + ' kpa');
-    return result;
+    let finalResult = `${result} kPa`;
+    console.log('Intake Manifold Absolute Pressure:', finalResult);
+    return finalResult;
   }
 
   cal_vechile_Speed(hexData) {
     let hexA = hexData.slice(0, 2);
     let A = parseInt(hexA, 16);
     let result = 1 * A;
-
-    console.log('Vechile speed in Km/h:', result + ' Km/h');
-    return result;
+    let finalResult = `${result} Km/h`;
+    console.log('Vehicle Speed:', finalResult);
+    return finalResult;
   }
 
   cal_timing_Advance(hexData) {
     let hexA = hexData.slice(0, 2);
-
     let A = parseInt(hexA, 16);
-
     let result = A / 2 - 64;
-
-    console.log('Timing Advance in deg:', result + ' deg');
-    return result;
+    let finalResult = `${result} deg`;
+    console.log('Timing Advance:', finalResult);
+    return finalResult;
   }
 
   cal_intake_air_temp(hexData) {
     let hexA = hexData.slice(0, 2);
-
     let A = parseInt(hexA, 16);
-
     let result = A - 40;
-
-    console.log('Intake AIr Temp in degC:', result + ' degC');
-    return result;
+    let finalResult = `${result} °C`;
+    console.log('Intake Air Temperature:', finalResult);
+    return finalResult;
   }
 
   cal_mass_air_flow(hexData) {
     let hexA = hexData.slice(0, 2);
     let hexB = hexData.slice(2, 4);
-
     let A = parseInt(hexA, 16);
     let B = parseInt(hexB, 16);
-
     let result = (256 * A + B) / 100;
-
-    console.log('mass air flow in g/s:', result + ' g/s');
-    return result;
+    let finalResult = `${result} g/s`;
+    console.log('Mass Air Flow:', finalResult);
+    return finalResult;
   }
 
   cal_throttle_position(hexData) {
     let hexA = hexData.slice(0, 2);
-
     let A = parseInt(hexA, 16);
-
     let result = (100 / 255) * A;
-
-    console.log('throttle position in %:', result + ' %');
-    return result;
+    let finalResult = `${result} %`;
+    console.log('Throttle Position:', finalResult);
+    return finalResult;
   }
 
   cal_oxigen_senV(hexData) {
     let hexA = hexData.slice(0, 2);
-
     let A = parseInt(hexA, 16);
-
     let result = A / 200;
-
-    console.log('oxigen sensor voltage in V:', result + ' V');
-    return result;
+    let finalResult = `${result} V`;
+    console.log('Oxygen Sensor Voltage:', finalResult);
+    return finalResult;
   }
 
   cal_run_time_engine_start(hexData) {
     let hexA = hexData.slice(0, 2);
     let hexB = hexData.slice(2, 4);
-
     let A = parseInt(hexA, 16);
     let B = parseInt(hexB, 16);
-
     let result = 256 * A + B;
-
-    console.log('runtime since engine start:', result + ' seconds');
-    return result;
+    let finalResult = `${result} seconds`;
+    console.log('Run Time Since Engine Start:', finalResult);
+    return finalResult;
   }
+
+  
+
+     drivers_demand_engine_precent_torque(hexData){           // pid 61 
+      let hexA = hexData.slice(0, 2);
+      let A = parseInt(hexA, 16);
+      let result = A - 125
+      let finalResult = `${result} %`;
+      return finalResult;
+
+     }
+
+
+     actual_engine_percent_torque(hexData){    // pid 62
+      let hexA = hexData.slice(0, 2);
+      let A = parseInt(hexA, 16);
+      let result = A - 125
+      let finalResult = `${result} %`;
+      return finalResult;
+
+     }
+
+
+     engine_refernce_torque(hexData){     // pid 63
+
+    let hexA = hexData.slice(0, 2);
+    let hexB = hexData.slice(2, 4);
+    let A = parseInt(hexA, 16);
+    let B = parseInt(hexB, 16);
+    let result = 256 * A + B;
+    let finalResult = `${result} NM`;
+    return finalResult;
+
+     }
+
+
+     engine_percent_torque_data(hexData){     // pid 64
+
+      let hexA = hexData.slice(0, 2);
+      let A = parseInt(hexA, 16);
+    
+      let result = A - 125;
+      let finalResult = `${result} %`;
+      return finalResult;
+  
+       }
+
+
+    
+
 }
