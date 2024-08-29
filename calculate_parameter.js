@@ -106,7 +106,7 @@
 
         let val1 = parseInt(hex1,16)
 
-        let result =(100/255 * (val1))-100
+        let result =(100/128 * (val1))-100
 
         // console.log("commanded EGR in percentage" + result + "%") ;
 
@@ -207,11 +207,9 @@
 
 
         let hex1 = hexData.slice(0,2)
-        let hex2 = hexData.slice(2,4)
 
         let val1 = parseInt(hex1,16)
-        let val2 = parseInt(hex2, 16)
-        let result = (256 * (val1) + val2)/4
+        let result = (val1)
 
         // console.log("Absolute Barometric Pressure" + result +"kPa");
 
@@ -220,7 +218,7 @@
     }
 
 
-        //pid-[34 to 39] and pid-[3A and 3B]
+        //pid-[34 to 39] and pid-[3A and 3B]    
 
 
     calculate_oxygen_sensor_ratio_current(hexData){
@@ -250,7 +248,7 @@
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2,16)
 
-        let result = (256 * (val1 + val2)/10)-40
+        let result = ((256 *val1 + val2)/10)-40
 
         // console.log("catalyst temparature in celcius" + result + "c");
 
@@ -264,7 +262,7 @@
 
 let calculate = new CalculateParameters()
 
-let hexData = "1A2B";
+let hexData = "1234";
 
 // let distance = calculate.calculate_distance_travelled_with_malfuction_indicator_lamp(hexData);
 
@@ -285,6 +283,8 @@ let hexData = "1A2B";
 // let distance = calculate.calculate_distance_traveled_since_codes_cleared(hexData)
 
 // let distance = calculate.calculate_Evap_system_vapour_pressure(hexData)
+// let distance = calculate.calculate_absolute_barometric_pressure(hexData)
+
 
 // let distance = calculate.calculate_oxygen_sensor_ratio_current(hexData)
 
