@@ -1,46 +1,46 @@
 export class DataHexDecoder {
 
-  monitor_status_since_DTCs_cleared(hexdata){
+  monitor_status_since_DTCs_cleared(hexdata) {
     let hexA = hexdata.slice(0, 8);
     let A = parseInt(hexA, 16);
     let result = 1 * A;
-    let encodedResult = `${result} ENCODEDD`;
+    let encodedResult = `${result} ENCODED`;
     console.log('monitor_status_since_DTCs_cleared', encodedResult);
     return encodedResult;
   }
 
-  freez_dtc(hexdata){
+  freez_dtc(hexdata) {
     let hexA = hexdata.slice(0, 4);
     let A = parseInt(hexA, 16);
     let result = 1 * A;
-    let encodedResult = `${result} ENCODEDD`;
+    let encodedResult = `${result} ENCODED`;
     console.log('freez_dtc', encodedResult);
     return encodedResult;
   }
 
-  fuel_system_status(hexdata){
+  fuel_system_status(hexdata) {
     let hexA = hexdata.slice(0, 4);
     let A = parseInt(hexA, 16);
     let result = 1 * A;
-    let encodedResult = `${result} ENCODEDD`;
+    let encodedResult = `${result} ENCODED`;
     console.log('fuel system status', encodedResult);
     return encodedResult;
   }
 
-  comanded_secondary_air_status(hexdata){
+  comanded_secondary_air_status(hexdata) {
     let hexA = hexdata.slice(0, 2);
     let A = parseInt(hexA, 16);
     let result = 1 * A;
-    let encodedResult = `${result} ENCODEDD`;
+    let encodedResult = `${result} ENCODED`;
     console.log('comanded_secondary_air_status', encodedResult);
     return encodedResult;
   }
 
-  obd_standard_to_vechile_cinfirm(hexdata){
+  obd_standard_to_vechile_cinfirm(hexdata) {
     let hexA = hexdata.slice(0, 2);
     let A = parseInt(hexA, 16);
     let result = 1 * A;
-    let encodedResult = `${result} ENCODEDD`;
+    let encodedResult = `${result} ENCODED`;
     console.log('obd_standard_to_vechile_cinfirm', encodedResult);
     return encodedResult;
   }
@@ -168,29 +168,29 @@ export class DataHexDecoder {
     return finalResult;
   }
 
-  
-
-     drivers_demand_engine_precent_torque(hexData){           // pid 61 
-      let hexA = hexData.slice(0, 2);
-      let A = parseInt(hexA, 16);
-      let result = A - 125
-      let finalResult = `${result} %`;
-      return finalResult;
-
-     }
 
 
-     actual_engine_percent_torque(hexData){    // pid 62
-      let hexA = hexData.slice(0, 2);
-      let A = parseInt(hexA, 16);
-      let result = A - 125
-      let finalResult = `${result} %`;
-      return finalResult;
+  drivers_demand_engine_precent_torque(hexData) {           // pid 61 
+    let hexA = hexData.slice(0, 2);
+    let A = parseInt(hexA, 16);
+    let result = A - 125
+    let finalResult = `${result} %`;
+    return finalResult;
 
-     }
+  }
 
 
-     engine_refernce_torque(hexData){     // pid 63
+  actual_engine_percent_torque(hexData) {    // pid 62
+    let hexA = hexData.slice(0, 2);
+    let A = parseInt(hexA, 16);
+    let result = A - 125
+    let finalResult = `${result} %`;
+    return finalResult;
+
+  }
+
+
+  engine_refernce_torque(hexData) {     // pid 63
 
     let hexA = hexData.slice(0, 2);
     let hexB = hexData.slice(2, 4);
@@ -200,21 +200,90 @@ export class DataHexDecoder {
     let finalResult = `${result} NM`;
     return finalResult;
 
-     }
+  }
 
 
-     engine_percent_torque_data(hexData){     // pid 64
+  engine_percent_torque_data(hexData) {     // pid 64
 
-      let hexA = hexData.slice(0, 2);
-      let A = parseInt(hexA, 16);
-    
-      let result = A - 125;
-      let finalResult = `${result} %`;
-      return finalResult;
-  
-       }
+    let hexA = hexData.slice(0, 2);
+    let A = parseInt(hexA, 16);
+
+    let result = A - 125;
+    let finalResult = `${result} %`;
+    return finalResult;
+
+  }
 
 
-    
+
+  auxillory_input_output_support(hexData) {    // pid 65
+
+    let hexA = hexData.slice(0, 2);
+    let A = parseInt(hexA, 16);
+
+
+    let result = A * 1;
+    let finalResult = `${result} ENCODED`;
+    return finalResult;
+
+
+  }
+
+
+
+  mass_air_flow_sensor(hexData) {     // pid 66
+
+    let hexA = hexData.slice(0, 2);
+    let hexB = hexData.slice(2, 4);
+    let A = parseInt(hexA, 16);
+    let B = parseInt(hexB, 16);
+    let result = (256 * A + B) / 32;
+    let finalResult = `${result} G/S`;
+    return finalResult;
+
+  }
+
+
+
+  engine_colent_sensor_1(hexData) {     // pid 67
+
+    let hexA = hexData.slice(0, 2);
+    let A = parseInt(hexA, 16);
+    let result = A - 40;
+    let finalResult = `${result} °C`;
+    return finalResult;
+
+  }
+
+
+  intake_air_temperture_sensor_1(hexData) {     // pid 68
+
+    let hexA = hexData.slice(0, 2);
+    let A = parseInt(hexA, 16);
+    let result = A - 40;
+    let finalResult = `${result} °C`;
+    return finalResult;
+
+  }
+
+
+  intake_air_temperture_sensor_1(hexData) {     // pid 7C
+
+    let hexA = hexData.slice(0, 2);
+    let hexB = hexData.slice(2, 4);
+    let A = parseInt(hexA, 16);
+    let B = parseInt(hexB, 16);
+    let result = ((256 * A + B) / 10) - 40;
+    let finalResult = `${result}  °C`;
+    return finalResult;
+
+  }
+
+
+
+
+
+
+
 
 }
