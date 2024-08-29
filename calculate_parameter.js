@@ -1,4 +1,4 @@
-export class CalculateParameters{
+ class CalculateParameters{
 
     //pid-[21]
     calculate_distance_travelled_with_malfuction_indicator_lamp(hexData){
@@ -8,7 +8,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
-        let result = 256(val1) + val2
+        let result = 256 * (val1) + val2
         
         
         // console.log("distance travelled with malfuction indicator lamp in kilometer" + result +"km");
@@ -27,7 +27,7 @@ export class CalculateParameters{
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
 
-        let result =  0.079(256(val1)+val2)
+        let result =  0.079 * (256 * (val1)+val2)
 
 
         // console.log("fuel rail pressure in kilo pascaluel_rail_pressure " + result + "kPa");
@@ -48,7 +48,7 @@ export class CalculateParameters{
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
 
-        let result =  10(256(val1)+val2)
+        let result =  10 * (256 * (val1)+val2)
 
         // console.log("fuel rail gauge pressure in kilo pascaluel_rail_pressure " + result + "kPa");
 
@@ -69,7 +69,7 @@ export class CalculateParameters{
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
 
-        let result = 2/65536(256(val1) + val2)
+        let result = 2/65536 * (256 * (val1) + val2)
 
         // console.log("oxygen sensor voltage ratio " + result + "V");
 
@@ -87,7 +87,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
 
-        let result =100/255(val1)
+        let result =100/255 * (val1)
 
         // console.log("commanded EGR in percentage" + result + "%") ;
 
@@ -106,7 +106,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
 
-        let result =(100/255(val1))-100
+        let result =(100/255 * (val1))-100
 
         // console.log("commanded EGR in percentage" + result + "%") ;
 
@@ -127,7 +127,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
 
-        let result =100/255(val1)
+        let result =100/255 * (val1)
 
         // console.log("commanded Evaporative purge in percentage" + result + "%") ;
 
@@ -148,7 +148,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
 
-        let result =100/255(val1)
+        let result =100/255 * (val1)
 
         // console.log("Fuel Tank Level Input in percentage" + result + "%") ;
 
@@ -169,7 +169,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
-        let result = 256(val1) + val2
+        let result = 256 * (val1) + val2
 
         // console.log("distance travelled since codes cleared in kilometer" + result +"km");
 
@@ -191,7 +191,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
-        let result = (256(val1) + val2)/4
+        let result = (256 * (val1) + val2)/4
 
         // console.log("Evap system vapour pressure in pascal" + result +"Pa");
 
@@ -211,7 +211,7 @@ export class CalculateParameters{
 
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
-        let result = (256(val1) + val2)/4
+        let result = (256 * (val1) + val2)/4
 
         // console.log("Absolute Barometric Pressure" + result +"kPa");
 
@@ -232,7 +232,7 @@ export class CalculateParameters{
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2, 16)
 
-        let result = 2/65536(256(val1) + val2)
+        let result = 2/65536 * (256 * (val1) + val2)
 
         // console.log("oxygen sensor current ratio " + result + "mA");
 
@@ -250,7 +250,7 @@ export class CalculateParameters{
         let val1 = parseInt(hex1,16)
         let val2 = parseInt(hex2,16)
 
-        let result = (256(A+B)/10)-40
+        let result = (256 * (val1 + val2)/10)-40
 
         // console.log("catalyst temparature in celcius" + result + "c");
 
@@ -261,3 +261,40 @@ export class CalculateParameters{
 
 
 }
+
+let calculate = new CalculateParameters()
+
+let hexData = "1A2B";
+
+// let distance = calculate.calculate_distance_travelled_with_malfuction_indicator_lamp(hexData);
+
+
+// let distance = calculate.calculate_fuel_rail_pressure(hexData)
+
+// let distance = calculate.calculate_fuel_rail_gauge_pressure(hexData)
+
+//    let distance = calculate.calculate_oxygen_sensor_ratio_voltage(hexData)
+
+
+// let distance = calculate.calculate_commanded_EGR(hexData)
+
+// let distance = calculate.calculate_EGR_Error(hexData)
+// let distance = calculate.calculate_commanded_evaporative_purge(hexData)
+// let distance = calculate.calculate_fuel_tank_level_input(hexData)
+
+// let distance = calculate.calculate_distance_traveled_since_codes_cleared(hexData)
+
+// let distance = calculate.calculate_Evap_system_vapour_pressure(hexData)
+
+// let distance = calculate.calculate_oxygen_sensor_ratio_current(hexData)
+
+let distance = calculate.calculate_catalyst_temperature(hexData)
+
+
+
+
+
+
+
+
+console.log(distance);
