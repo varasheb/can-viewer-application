@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const tableBody = document.getElementById('data-table-body');
 
   ipcRenderer.on('tcp-data', (event, data) => {
-    const parsedData = JSON.parse(data);
+    const parsedData = data;
 
     let existingRow = document.getElementById(parsedData.id);
 

@@ -27,11 +27,12 @@ function connectToServer() {
   })
 
   client.on('data', (data) => {
-    console.log("Received from server: ",data)
+    const sentdata=JSON.parse(data)
+    console.log("Received from server: ",sentdata)
 
     // Send data to renderer process
     BrowserWindow.getAllWindows().forEach(win => {
-      win.webContents.send('tcp-data', JSON.parse(data))
+      win.webContents.send('tcp-data', sentdata)
     })
   })
 
