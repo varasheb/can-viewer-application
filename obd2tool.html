@@ -26,17 +26,19 @@
             <option value="80">[81 - A0]</option>
             <option value="A0">[A1 - C0]</option>
         </select>
+        
         <button id="obd-inp-btn1" style="margin: 0px;"><p>Start</p></button>
         <button id="obd-inp-btn2" style="margin: 0px;"><p>Stop</p></button>
     </div>
 
     <table>
         <thead>
-            <tr>
-                <th id>PID ID</th>
+            <tr id="obd-table-main-row">
+                <th id="obd-time-col">Time stamp</th>
+                <th id="obd-id-col">PID ID</th>
                 <th>PID Name</th>
-                <th>Value</th>
-                <th>Unit</th>
+                <th id="obd-value-col">Value</th>
+                <th id="obd-unit-col">Unit</th>
             </tr>
         </thead>
         <tbody id="data-table-body">

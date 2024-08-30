@@ -167,3 +167,23 @@ form {
     height: 40px;
     font-size: 17px;
 }
+
+#obd-table-main-row{
+    width: 95%;
+}
+
+#obd-time-col{
+    width: 18%;
+}
+
+#obd-id-col{
+    width: 12%;
+}
+
+#obd-unit-col{
+    width: 12%;
+}
+
+#obd-value-col{
+    width: 18%;
+}
